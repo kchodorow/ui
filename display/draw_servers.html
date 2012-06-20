@@ -3,11 +3,14 @@
 
 <head>
 <title>Hey this is my page</title>
+<!--scripts/-->
 <script src="js/draw_servers.js"></script>
+<script src="js/server_game.js"></script>
+<!--style/-->
 <link rel="stylesheet" type="text/css" href="style/logl.css"/>
 </head>
 
-<body onload="serverSetup();primary(120,120,50);secondary(400,400,50);user(200,200,10);down(100,350,50);arbiter(600,230,50)"/>
+<body onload="serverSetup();game_setup();"/>
 Canvas one:
 <br/>
 <canvas id="main" width="800" height="600"></canvas>
