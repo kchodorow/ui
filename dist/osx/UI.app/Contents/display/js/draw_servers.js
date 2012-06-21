@@ -1,29 +1,29 @@
 // test 2: draw basic servers
 
 var canvas;
+var ctx;
 
 
 serverSetup = function() {
-    canvas = document.getElementById("layer1");
-    var ctx = canvas.getContext("2d");
+    canvas = document.getElementById("main");
+    ctx = canvas.getContext("2d");
     ctx.beginPath();
     ctx.rect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#4E3629";
     ctx.fill();
-
 };
 
 
-primary = function(x, y, r, ctx) {
+primary = function(x, y, r) {
     // draw a primary server with radius r centered at (x, y)
      // draw a green circle with a yellow stroke
-    circle(x, y, r, "#24B314", "#F0E92F", 18, ctx);
+    circle(x, y, r, "#24B314", "#F0E92F", 18);
     // add the crown
-    crown(x, (y - .22*r), .6*r, .5*r, ctx)
+    crown(x, (y - .22*r), .6*r, .5*r)
 };
 
 
-down = function(x, y, r, ctx) {
+down = function(x, y, r) {
     // draw a down server
     ctx.globalAlpha = 0.4 // 40% opacity
     ctx.beginPath();
@@ -48,7 +48,7 @@ down = function(x, y, r, ctx) {
 };
 
 
-arbiter = function(x, y, r, ctx) {
+arbiter = function(x, y, r) {
     // draw an arbiter centered at (x, y) with radius r
 
     // draw bottom white circle
@@ -83,7 +83,7 @@ arbiter = function(x, y, r, ctx) {
 
 };
 
-circle = function(x, y, r, fill, stroke, wt, ctx) {
+circle = function(x, y, r, fill, stroke, wt) {
     // draw a circle with given qualities
     ctx.fillStyle = fill;
     ctx.beginPath();
@@ -94,19 +94,19 @@ circle = function(x, y, r, fill, stroke, wt, ctx) {
     ctx.fill();
 };
 
-user = function(x, y, r, ctx) {
+user = function(x, y, r) {
     // draw a user circle with radius r centered at (x, y)
-    circle(x, y, r, "#93191C", "#AF434B", 5, ctx);
+    circle(x, y, r, "#93191C", "#AF434B", 5);
 };
 
-secondary = function(x, y, r, ctx) {
+secondary = function(x, y, r) {
     // draw a secondary server with radius r centered at (x, y)
     // draw a green circle with a
-    circle(x, y, r, "#24B314", "#196E0F", 18, ctx)
+    circle(x, y, r, "#24B314", "#196E0F", 18)
 };
 
 
-crown = function(x, y, w, h, ctx) {
+crown = function(x, y, w, h) {
     // draw a crown with center spike at (x, y)
     // with width w and height h
     // fill yellow
