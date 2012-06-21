@@ -53,6 +53,9 @@ arbiter = function(x, y, r, ctx) {
 
     // draw bottom white circle
     ctx.beginPath();
+
+    ctx.lineWidth = 5;
+
     ctx.arc(x, y, r, 0, 360, false);
     ctx.fillStyle = "#BFB1A4";
     ctx.fill();

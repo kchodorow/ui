@@ -16,15 +16,49 @@ mouse_over_setup = function() {
     most_foreground = canvas3.getContext("2d");
     canvas3.addEventListener("mousemove", on_canvas_mouseover, false);
 
+    message = document.getElementById("layer4");
+    messageLayer = message.getContext("2d");
+
 
     x = canvas.width/2;
     y = canvas.height/2;
-    r = 50;
+    r = 25;
 
     // draw server(s)
-    servers["a"] = { "x" : x, "y" : y, "r" : r, "on" : false};
 
+    var randomnumber;
+    var xval, yval;
+    for(var i = 0; i < 10; i++) {
+		randomnumber = Math.floor(Math.random()*4);
+		xval = Math.floor(Math.random()*800);
+		yval = Math.floor(Math.random()*600);
+
+		if(randomnumber === 0) {
+			servers[i] = { "x" : xval, "y" : yval, "r" : r, "on" : false, "type" : "primary"};
+			primary(xval, yval, r, background);
+		}
+		else if (randomnumber == 1) {
+			servers[i] = { "x" : xval, "y" : yval, "r" : r, "on" : false, "type" : "secondary"};
+			secondary(xval, yval, r, background);
+		}
+		else if (randomnumber == 2) {
+			servers[i] = { "x" : xval, "y" : yval, "r" : r, "on" : false, "type" : "arbiter"};
+			arbiter(xval, yval, r, background);
+		}
+		else if (randomnumber == 3) {
+			servers[i] = { "x" : xval, "y" : yval, "r" : 10, "on" : false, "type" : "user"};
+			user(xval, yval, 10, background);
+		}
+    }
+
+    servers["a"] = { "x" : x, "y" : y, "r" : r, "on" : false, "type" : "primary"};
+    servers["b"] = {"x" : x/2, "y" : y/2,r :  r, "on" : false, "type" : "arbiter"};
+    servers["c"] = {"x" : x + x/2, "y" : y + y/2,r :  r, "on" : false, "type" : "user"};
+    servers["d"] = {"x" : x + 90, "y" : y + 90,r :  r, "on" : false, "type" : "secondary"};
+    //user(x + x/2, y + y/2, r, background);
+    secondary(x + 90, y + 90, r, background);
     primary(x, y, r, background);
+    arbiter(x/2, y/2, r, background);
 };
 
 
@@ -57,12 +91,25 @@ on_canvas_mouseover = function(e) {
 			foreground.fill();
 			foreground.shadowBlur = 0;
 			//canvas.width = canvas.width;
-			primary(servers[server]["x"], servers[server]["y"], servers[server]["r"], most_foreground);
+			messageLayer.fillStyle = "black";
+			messageLayer.rect(x, y, 24, 24);
+			messageLayer.fill();
+			if(servers[server]["type"] == "primary")
+				primary(servers[server]["x"], servers[server]["y"], servers[server]["r"], most_foreground);
+			else if(servers[server]["type"] == "arbiter")
+				arbiter(servers[server]["x"], servers[server]["y"], servers[server]["r"], most_foreground);
+			else if(servers[server]["type"] == "user")
+				user(servers[server]["x"], servers[server]["y"], servers[server]["r"], most_foreground);
+			else if(servers[server]["type"] == "secondary")
+				secondary(servers[server]["x"], servers[server]["y"], servers[server]["r"], most_foreground);
 	    	}
 	    }
 		else {
-			canvas2.width = canvas2.width;
-			servers[server]["on"] = false;
+			if(servers[server]["on"]){
+				canvas2.width = canvas2.width;
+				message.width = message.width;
+				servers[server]["on"] = false;
+			}
 		}
 	}
 };
