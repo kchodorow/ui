@@ -50,15 +50,6 @@ mouse_over_setup = function() {
 			user(xval, yval, 10, background);
 		}
     }
-
-    servers["a"] = { "x" : x, "y" : y, "r" : r, "on" : false, "type" : "primary"};
-    servers["b"] = {"x" : x/2, "y" : y/2,r :  r, "on" : false, "type" : "arbiter"};
-    servers["c"] = {"x" : x + x/2, "y" : y + y/2,r :  r, "on" : false, "type" : "user"};
-    servers["d"] = {"x" : x + 90, "y" : y + 90,r :  r, "on" : false, "type" : "secondary"};
-    //user(x + x/2, y + y/2, r, background);
-    secondary(x + 90, y + 90, r, background);
-    primary(x, y, r, background);
-    arbiter(x/2, y/2, r, background);
 };
 
 
@@ -78,7 +69,7 @@ on_canvas_mouseover = function(e) {
 			// check if that server is set to "true" for mouseover
 			if (!servers[server]["on"]) {
 			// make a shadow under server, and a sound
-			document.getElementById("mouse_over_sound").innerHTML = "<embed src='click.wav' hidden=true autostart=true loop=false>";
+			//document.getElementById("mouse_over_sound").innerHTML = "<embed src='click.wav' hidden=true autostart=true loop=false>";
 			servers[server]["on"] = true;
 			// draw the drop shadow
 			foreground.beginPath();
