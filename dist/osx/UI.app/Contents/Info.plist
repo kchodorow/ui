@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>titanium.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>UI</string>
+	<string>UIProgram</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

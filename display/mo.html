@@ -12,18 +12,25 @@
 </head>
 
 <body onload="serverSetup();mouse_over_setup();"/>
-Visualize log here:
 <br/>
 
 <div style="position: relative;">
- <canvas id="layer1" width="800" height="600" 
-   style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
- <canvas id="layer2" width="800" height="600" 
+
+ <canvas id="server_layer" width="800" height="600" 
+   style="position: absolute; left: 0; top: 0; z-index: 2;"></canvas>
+
+ <canvas id="shadows" width="800" height="600" 
    style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
- <canvas id = "layer3" width = "800" height = "600"
+
+ <canvas id = "most_foreground" width = "800" height = "600"
+   style = "position: absolute; left: 0; top: 0; z-index: 4;"></canvas>
+
+ <canvas id = "message_layer" width = "800" height = "600"
    style = "position: absolute; left: 0; top: 0; z-index: 3;"></canvas>
- <canvas id = "layer4" width = "800" height = "600"
-   style = "position: absolute; left: 0; top: 0; z-index: 2;"></canvas>
+
+ <canvas id = "background" width = "800" height = "600"
+   style = "position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+
 </div>
 
 <!--sound effect from http://www.pachd.com/a/button/button2.wav/-->

@@ -1,10 +1,10 @@
 #appname: UI
-#appid: UI
+#appid: UIProgram
 #guid: c7b3a1a8-e978-4a54-9295-2456a07325e3
 #version: 1.0
 #image: icon1.png
 #publisher: kaushalparikh
-#description: not specified
+#description: None at this time. 
 #url: http://
 runtime: 1.1.0
 tiapp: 1.1.0

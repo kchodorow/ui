@@ -2,8 +2,8 @@
 #publisher:kaushalparikh
 #url:http://
 #image:default_app_logo.png
-#appid:UI
-#desc:not specified
+#appid:UIProgram
+#desc:None at this time.
 #type:desktop
 #guid:c7b3a1a8-e978-4a54-9295-2456a07325e3
 runtime:1.1.0
